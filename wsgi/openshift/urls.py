@@ -15,4 +15,8 @@ urlpatterns = patterns('',
     # Uncomment the next line to enable the admin:
     url(r'^admin/', include(admin.site.urls)),
     url(r'^register/$', 'openshift.DjangoFilms.views.register'),
+    url(r'^ok/$', 'openshift.DjangoFilms.views.ok'),
+    url(r'^login/$', 'openshift.DjangoFilms.views.login'),
+    url(r'^comprobar/$', 'openshift.DjangoFilms.views.comprobar'),
+
 )
