@@ -7,31 +7,27 @@ from django.template import RequestContext
 from django.contrib import auth
 
 def register(request):
-    if request.method == 'POST':
-        form = UserCreationForm(request.POST)
-        if form.is_valid():
-            new_user = form.save()
-#            return HttpResponseRedirect("/ok/")
-            return render_to_response("ok.html",context_instance=RequestContext(request))
-    else:
-        form = UserCreationForm()
+    form = UserCreationForm()
     return render(request, "register.html", {
         'form': form,
     })
 
-def login(request):
-    return render(request, 'login.html', {})
-
-
-def comprobar(request):
+def check(request):
     username = request.POST['username']
     password = request.POST['password']
     user = auth.authenticate(username=username, password=password)
     if user is not None:
         if user.is_active:
             auth.login(request,user)
-            return render(request, '1.html', {})
+            request.session['username'] = username
+            return HttpResponseRedirect('/')
         else:
             return render(request, '2.html', {})
     else:
         return render(request, '3.html', {})
+
+def login(request):
+    if request.session.get("username"):
+        return render(request, '1.html', {})
+    else:
+        return render(request, 'login.html', {})
