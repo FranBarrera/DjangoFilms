@@ -4,7 +4,7 @@ from django.http import HttpResponseRedirect, Http404
 from django.shortcuts import render, render_to_response
 from django.template import RequestContext
 #from django.contrib import auth
-from django.contrib.auth import authenticate, login as auth_login
+from django.contrib import auth
 
 def register(request):
     if request.method == 'POST':
@@ -26,10 +26,10 @@ def login(request):
 def comprobar(request):
     username = request.POST['username']
     password = request.POST['password']
-    user = authenticate(username=username, password=password)
+    user = auth.authenticate(username=username, password=password)
     if user is not None:
         if user.is_active:
-            auth_login(request,user)
+            auth.login(request,user)
             return render(request, '1.html', {})
         else:
             return render(request, '2.html', {})
