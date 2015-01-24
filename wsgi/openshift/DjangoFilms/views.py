@@ -29,7 +29,7 @@ def comprobar(request):
     user = authenticate(username=username, password=password)
     if user is not None:
         if user.is_active:
-            auth_login(request,user)
+            login(request,user)
             return render(request, '1.html', {})
         else:
             return render(request, '2.html', {})
