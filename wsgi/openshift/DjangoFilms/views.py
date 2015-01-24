@@ -4,7 +4,7 @@ from django.http import HttpResponseRedirect, Http404
 from django.shortcuts import render, render_to_response
 from django.template import RequestContext
 #from django.contrib import auth
-from django.contrib.auth import authenticate, login as auth_login
+from django.contrib.auth import authenticate, login
 
 def register(request):
     if request.method == 'POST':
