@@ -45,7 +45,5 @@ def movies_popular(user_token):
         request = requests.get(url,params=values)
         resp = json.loads(request.text)
         print resp
-        return render(request, "movies_popular.html", {
-            'data_raw': resp,
-            })
+        return render_to_response('movies_popular.html', {'data_raw': resp },)
 
