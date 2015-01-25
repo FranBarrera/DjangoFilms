@@ -1,2 +1,7 @@
-<p> Bienvenido, {{ user.username }}.</p>
+<h1> Bienvenido, {{ user.username }}.</h1>
 
+<p>Una lista de las películas más vistas actualmente</p>
+
+{% for data in data_raw.results %}
+    <li>{{data.title}}</li>
+{% endfor %}

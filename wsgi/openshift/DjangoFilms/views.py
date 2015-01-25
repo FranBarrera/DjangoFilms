@@ -35,7 +35,8 @@ def check(request):
 
 def login(request):
     if request.session.get("username"):
-        return render(request, '1.html', {})
+#        return render_to_response('1.html', {'data_raw': resp },)
+        return render(request, '1.html', {'data_raw': resp },)
     else:
         return render(request, 'login.html', {})
 
@@ -47,3 +48,8 @@ def movies_popular(user_token):
         print resp
         return render_to_response('movies_popular.html', {'data_raw': resp },)
 
+url = 'http://api.themoviedb.org/3/movie/popular'
+values = {'api_key':'ce9f97d604b836963b8de8c49437e283','language':'es'}
+request = requests.get(url,params=values)
+resp = json.loads(request.text)
+print resp
