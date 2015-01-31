@@ -49,7 +49,7 @@ def movies_popular():
         return resp
 
 def info(id):
-        url = 'http://api.themoviedb.org/3/movie/'+id
+        url = 'http://api.themoviedb.org/3/movie/752'
         values = {'api_key':'ce9f97d604b836963b8de8c49437e283','language':'es'}
         request = requests.get(url,params=values)
         resp = json.loads(request.text)
