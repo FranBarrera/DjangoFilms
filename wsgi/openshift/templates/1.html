@@ -3,5 +3,6 @@
 <p>Una lista de las películas más vistas actualmente</p>
 
 {% for data in data_raw.results %}
-    <li>{{data.title}}</li>
+    <a href="/peliculas"><li>{{data.title}}</li></a>
 {% endfor %}
+

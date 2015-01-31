@@ -3,7 +3,6 @@ from django.contrib.auth.forms import UserCreationForm
 from django.http import HttpResponseRedirect, Http404, HttpResponse
 from django.shortcuts import render, render_to_response
 from django.template import RequestContext
-#from django.contrib import auth
 from django.contrib import auth
 import requests,json
 
@@ -36,20 +35,32 @@ def check(request):
 def login(request):
     if request.session.get("username"):
 #        return render_to_response('1.html', {'data_raw': resp },)
+        resp = movies_popular()
         return render(request, '1.html', {'data_raw': resp },)
     else:
         return render(request, 'login.html', {})
 
-def movies_popular(user_token):
+def movies_popular():
         url = 'http://api.themoviedb.org/3/movie/popular'
         values = {'api_key':'ce9f97d604b836963b8de8c49437e283','language':'es'}
         request = requests.get(url,params=values)
         resp = json.loads(request.text)
         print resp
-        return render_to_response('movies_popular.html', {'data_raw': resp },)
+        return resp
 
-url = 'http://api.themoviedb.org/3/movie/popular'
-values = {'api_key':'ce9f97d604b836963b8de8c49437e283','language':'es'}
-request = requests.get(url,params=values)
-resp = json.loads(request.text)
-print resp
+def info(id):
+        url = 'http://api.themoviedb.org/3/movie/'+id
+        values = {'api_key':'ce9f97d604b836963b8de8c49437e283','language':'es'}
+        request = requests.get(url,params=values)
+        resp = json.loads(request.text)
+        print resp
+        return render_to_response('peliculas.html', {'data_raw': resp },)
+
+
+# http://api.themoviedb.org/3/movie/752?api_key=3ac72c49522e833f35d17c2105f59074&language=es
+
+# url = 'http://api.themoviedb.org/3/movie/752'
+# values = {'api_key':'ce9f97d604b836963b8de8c49437e283','language':'es'}
+# request = requests.get(url,params=values)
+# resp = json.loads(request.text)
+# print resp
