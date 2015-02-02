@@ -3,5 +3,5 @@
 <p>Una lista de las películas más vistas actualmente</p>
 
 {% for data in data_raw.results %}
-    <a href="/peliculas/id"><img src="https://image.tmdb.org/t/p/w185/{{data.backdrop_path}}"></a>
+    <a href="/peliculas/{{data.id}}"><img src="https://image.tmdb.org/t/p/w185/{{data.backdrop_path}}"></a>
 {% endfor %}

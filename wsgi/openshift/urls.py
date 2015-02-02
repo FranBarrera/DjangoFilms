@@ -18,6 +18,9 @@ urlpatterns = patterns('',
     url(r'^$', 'openshift.DjangoFilms.views.login'),
     url(r'^check/$', 'openshift.DjangoFilms.views.check'),
     url(r'^pelicula/$', 'openshift.DjangoFilms.views.info'),
+    url(r'^peliculas/(?P<api>[0-9]{0,9})/$', 'openshift.DjangoFilms.views.info_peli'),
+
+ #   url(r'^peliculas/245891/$', 'openshift.DjangoFilms.views.info_peli'),
 
 
 

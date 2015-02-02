@@ -56,6 +56,14 @@ def info(id):
         print resp
         return render_to_response('peliculas.html', {'data_raw': resp },)
 
+def info_peli(request, api):
+        url = 'http://api.themoviedb.org/3/movie/%s' %api
+        values = {'api_key':'ce9f97d604b836963b8de8c49437e283','language':'es'}
+        request = requests.get(url,params=values)
+        resp = json.loads(request.text)
+        print resp
+        return render_to_response('peliculas.html', {'data_raw': resp },)
+
 
 # http://api.themoviedb.org/3/movie/752?api_key=3ac72c49522e833f35d17c2105f59074&language=es
 
