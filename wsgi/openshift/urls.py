@@ -19,7 +19,7 @@ urlpatterns = patterns('',
     url(r'^check/$', 'openshift.DjangoFilms.views.check'),
     url(r'^pelicula/$', 'openshift.DjangoFilms.views.info'),
     url(r'^peliculas/(?P<api>[0-9]{0,9})/$', 'openshift.DjangoFilms.views.info_peli'),
-    url(r'^peliculas/(?P<api>[0-9]{0,9})/vista$', 'openshift.DjangoFilms.views.media'),
+    url(r'^peliculas/(?P<api>[0-9]{0,9})/vista$', 'openshift.DjangoFilms.views.insert_media'),
  #   url(r'^peliculas/245891/$', 'openshift.DjangoFilms.views.info_peli'),
 
 

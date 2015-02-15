@@ -5,7 +5,7 @@ from django.shortcuts import render, render_to_response
 from django.template import RequestContext
 from django.contrib import auth
 import requests,json
-from django.db import models
+from DjangoFilms import models
 
 def register(request):
  if request.method == 'POST':
@@ -68,15 +68,17 @@ def info_peli(request, api):
 
 
 
-def media(request,api):
+def insert_media(request,api):
     url = 'http://api.themoviedb.org/3/movie/%s' %api
     values = {'api_key':'ce9f97d604b836963b8de8c49437e283','language':'es'}
     request = requests.get(url,params=values)
     resp = json.loads(request.text)
     name = resp['title']
     print name
-    insert = media(api_id=api,type=2,name=name)
+    insert = models.media(api_id=api,type=2,name=name)
     insert.save()
+    return HttpResponse('<p>Insertada a vistas</p>')
+
 
 # def vista(request,api):
 #     vista = usermedia(user=user,media=api,status=2)
