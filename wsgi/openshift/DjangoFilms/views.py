@@ -6,6 +6,7 @@ from django.template import RequestContext
 from django.contrib import auth
 import requests,json
 from DjangoFilms import models
+from django.contrib.auth.models import User
 
 def register(request):
  if request.method == 'POST':
@@ -80,8 +81,16 @@ def insert_media(request,api):
     return HttpResponse('<p>Insertada a media</p>')
 
 
-# def vista(request,api):
-#     vista = usermedia(user=user,media=api,status=2)
+def vista(request,api):
+    username = request.session.get("username")
+    user_id = User.objects.filter(username=username).values('id')
+    media = models.media.objects.filter(api_id=api).values('id')
+    insert = models.usermedia(user=user_id,media=media,status=1)
+    insert.save()
+    return HttpResponse('<p>Insertada a vistas</p>')
+
+
+#Peliculas(1=vista,2=pendiente)
 
 # http://api.themoviedb.org/3/movie/752?api_key=3ac72c49522e833f35d17c2105f59074&language=es
 
