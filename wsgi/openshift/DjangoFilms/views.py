@@ -57,10 +57,11 @@ def insert_media(request,api):
         return HttpResponse('<p>Insertada a media</p>')
 
 
-def vista(request,api):
-    username = request.session.get("username")
-    user_id = User.objects.filter(username=username).values('id')[0]['id']
-    media = models.media.objects.filter(api_id=api).values('id')[0]['id']
-    insert = models.usermedia(user=user_id,media=media,status=1)
-    insert.save()
-    return HttpResponse('<p>Insertada a vistas</p>')
+# def vista(request,api):
+#     username = request.session.get("username")
+#     user_id = User.objects.filter(username=username).values('id')[0]['id']
+#     print user_id
+#     media = models.media.objects.filter(api_id=api).values('id')[0]['id']
+#     insert = models.usermedia(user=user_id,media=media,status=1)
+#     insert.save()
+#     return HttpResponse('<p>Insertada a vistas</p>')
