@@ -7,6 +7,7 @@ from django.contrib import auth
 import requests,json
 from DjangoFilms import models
 from django.contrib.auth.models import User
+from DjangoFilms.functions import *
 
 def register(request):
  if request.method == 'POST':
@@ -56,12 +57,6 @@ def info(id):
         resp = json.loads(request.text)
         return render_to_response('peliculas.html', {'data_raw': resp },)
 
-def info_peli(api):
-        url = 'http://api.themoviedb.org/3/movie/%s' %api
-        values = {'api_key':'ce9f97d604b836963b8de8c49437e283','language':'es'}
-        request = requests.get(url,params=values)
-        resp = json.loads(request.text)
-        return resp
 
 def envia_info_peli(request,api):
         resp = info_peli(api)
