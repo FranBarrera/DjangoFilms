@@ -37,31 +37,24 @@ def check(request):
 
 def login(request):
     if request.session.get("username"):
-#        return render_to_response('1.html', {'data_raw': resp },)
         resp = movies_popular()
         return render(request, '1.html', {'data_raw': resp },)
     else:
         return render(request, 'login.html', {})
 
-def movies_popular():
-        url = 'http://api.themoviedb.org/3/movie/popular'
-        values = {'api_key':'ce9f97d604b836963b8de8c49437e283','language':'es'}
-        request = requests.get(url,params=values)
-        resp = json.loads(request.text)
-        return resp
 
 def envia_info_peli(request,api):
-        resp = info_peli(api)
-        return render_to_response('peliculas.html', {'data_raw': resp },)
+    resp = info_peli(api)
+    return render_to_response('peliculas.html', {'data_raw': resp },)
 
 
 def insert_media(request,api):
-    resp = info_peli(api)
-    name = resp['title']
-    print name
-    insert = models.media(api_id=api,type=2,name=name)
-    insert.save()
-    return HttpResponse('<p>Insertada a media</p>')
+    if len(models.media.objects.filter(api_id=api).values('id')) = 0:
+        resp = info_peli(api)
+        name = resp['title']
+        insert = models.media(api_id=api,type=2,name=name)
+        insert.save()
+        return HttpResponse('<p>Insertada a media</p>')
 
 
 # def vista(request,api):
