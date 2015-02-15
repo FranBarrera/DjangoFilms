@@ -66,7 +66,15 @@ def info_peli(request, api):
         return render_to_response('peliculas.html', {'data_raw': resp },)
 
 
-def media(request,api,name):
+
+
+def media(request,api):
+    url = 'http://api.themoviedb.org/3/movie/%s' %api
+    values = {'api_key':'ce9f97d604b836963b8de8c49437e283','language':'es'}
+    request = requests.get(url,params=values)
+    resp = json.loads(request.text)
+    name = resp['title']
+    print name
     insert = media(api_id=api,type=2,name=name)
     insert.save()
 
