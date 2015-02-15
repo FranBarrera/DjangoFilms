@@ -79,14 +79,3 @@ def insert_media(request,api):
 #     insert = models.usermedia(user=user_id,media=media,status=1)
 #     insert.save()
 #     return HttpResponse('<p>Insertada a vistas</p>')
-
-
-#Peliculas(1=vista,2=pendiente)
-
-# http://api.themoviedb.org/3/movie/752?api_key=3ac72c49522e833f35d17c2105f59074&language=es
-
-# url = 'http://api.themoviedb.org/3/movie/752'
-# values = {'api_key':'ce9f97d604b836963b8de8c49437e283','language':'es'}
-# request = requests.get(url,params=values)
-# resp = json.loads(request.text)
-# print resp
