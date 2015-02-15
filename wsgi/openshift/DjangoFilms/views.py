@@ -49,7 +49,7 @@ def envia_info_peli(request,api):
 
 
 def insert_media(request,api):
-    if len(models.media.objects.filter(api_id=api).values('id')) = 0:
+    if len(models.media.objects.filter(api_id=api).values('id')) == 0:
         resp = info_peli(api)
         name = resp['title']
         insert = models.media(api_id=api,type=2,name=name)
