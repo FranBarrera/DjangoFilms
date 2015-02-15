@@ -50,14 +50,6 @@ def movies_popular():
         resp = json.loads(request.text)
         return resp
 
-def info(id):
-        url = 'http://api.themoviedb.org/3/movie/752'
-        values = {'api_key':'ce9f97d604b836963b8de8c49437e283','language':'es'}
-        request = requests.get(url,params=values)
-        resp = json.loads(request.text)
-        return render_to_response('peliculas.html', {'data_raw': resp },)
-
-
 def envia_info_peli(request,api):
         resp = info_peli(api)
         return render_to_response('peliculas.html', {'data_raw': resp },)
