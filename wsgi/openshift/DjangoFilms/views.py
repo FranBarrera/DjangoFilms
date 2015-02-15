@@ -77,7 +77,7 @@ def insert_media(request,api):
     print name
     insert = models.media(api_id=api,type=2,name=name)
     insert.save()
-    return HttpResponse('<p>Insertada a vistas</p>')
+    return HttpResponse('<p>Insertada a media</p>')
 
 
 # def vista(request,api):
