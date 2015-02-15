@@ -68,13 +68,8 @@ def envia_info_peli(request,api):
         return render_to_response('peliculas.html', {'data_raw': resp },)
 
 
-
-
 def insert_media(request,api):
-    url = 'http://api.themoviedb.org/3/movie/%s' %api
-    values = {'api_key':'ce9f97d604b836963b8de8c49437e283','language':'es'}
-    request = requests.get(url,params=values)
-    resp = json.loads(request.text)
+    resp = info_peli(api)
     name = resp['title']
     print name
     insert = models.media(api_id=api,type=2,name=name)
@@ -82,13 +77,13 @@ def insert_media(request,api):
     return HttpResponse('<p>Insertada a media</p>')
 
 
-def vista(request,api):
-    username = request.session.get("username")
-    user_id = User.objects.filter(username=username).values('id')
-    media = models.media.objects.filter(api_id=api).values('id')
-    insert = models.usermedia(user=user_id,media=media,status=1)
-    insert.save()
-    return HttpResponse('<p>Insertada a vistas</p>')
+# def vista(request,api):
+#     username = request.session.get("username")
+#     user_id = User.objects.filter(username=username).values('id')
+#     media = models.media.objects.filter(api_id=api).values('id')
+#     insert = models.usermedia(user=user_id,media=media,status=1)
+#     insert.save()
+#     return HttpResponse('<p>Insertada a vistas</p>')
 
 
 #Peliculas(1=vista,2=pendiente)
