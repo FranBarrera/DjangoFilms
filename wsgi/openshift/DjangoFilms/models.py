@@ -17,6 +17,7 @@ class usermedia(models.Model):
 	user = models.ForeignKey(User)
 	media = models.ForeignKey(media)
 	status = models.IntegerField()
+	unique_together = (("user", "media", "status"),)
 	class Meta:
 		verbose_name_plural = 'usermedia'
 

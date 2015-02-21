@@ -67,6 +67,9 @@ def vista(request,api):
     username = request.session.get("username")
     user = User.objects.get(username=username)
     media = models.media.objects.get(api_id=api)
-    insert_user = models.usermedia(user=user,media=media,status=1)
-    insert_user.save()
-    return HttpResponse('<p>Insertada a vistas</p>')
+    if len(models.usermedia.objects.filter(user=user,media=media,status=1)) == 0:
+        insert_user = models.usermedia(user=user,media=media,status=1)
+        insert_user.save()
+        return HttpResponse('<p>Insertada a vistas</p>')
+    else:
+        return HttpResponse('<p>Ya esta insertada en vistas</p>')
