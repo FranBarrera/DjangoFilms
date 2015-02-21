@@ -31,14 +31,7 @@ def info_serie(api):
 
 def seasons_series(api,season):
         url = 'http://api.themoviedb.org/3/tv/%s/season/%s' % (api, season)
-        values = {'api_key':'ce9f97d604b836963b8de8c49437e283','language':'es'}
-        request = requests.get(url,params=values)
-        resp = json.loads(request.text)
-        return resp
-
-def episodes_series(api,season,episode):
-        url = 'http://api.themoviedb.org/3/tv/%s/season/%s/episode/%s' (api, season, episode)
-        values = {'api_key':'ce9f97d604b836963b8de8c49437e283','language':'es'}
+        values = {'api_key':'ce9f97d604b836963b8de8c49437e283','language':'en'}
         request = requests.get(url,params=values)
         resp = json.loads(request.text)
         return resp
