@@ -12,5 +12,5 @@
 <p>Una lista de las series más vistas actualmente</p>
 
 {% for data in data_raw_series.results %}
-    <a href="/peliculas/{{data.id}}"><img src="https://image.tmdb.org/t/p/w185/{{data.backdrop_path}}"></a>
+    <a href="/series/{{data.id}}"><img src="https://image.tmdb.org/t/p/w185/{{data.backdrop_path}}"></a>
 {% endfor %}

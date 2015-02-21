@@ -48,6 +48,15 @@ def envia_info_peli(request,api):
     resp = info_peli(api)
     return render_to_response('peliculas.html', {'data_raw': resp },)
 
+def envia_info_serie(request,api):
+    resp = info_serie(api)
+    return render_to_response('series.html', {'data_raw': resp },)
+
+def envia_seasons(request,api,season):
+    resp = seasons_series(api,season)
+    return render_to_response('capitulos.html', {'data_raw': resp },)
+
+
 
 # def insert_media(request,api):
 #     if len(models.media.objects.filter(api_id=api).values('id')) == 0:
