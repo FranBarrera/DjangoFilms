@@ -73,3 +73,20 @@ def vista(request,api):
         return HttpResponse('<p>Insertada a vistas</p>')
     else:
         return HttpResponse('<p>Ya esta insertada en vistas</p>')
+
+def pendiente(request,api):
+    if len(models.media.objects.filter(api_id=api).values('id')) == 0:
+        resp = info_peli(api)
+        name = resp['title']
+        insert_media = models.media(api_id=api,type=2,name=name)
+        insert_media.save()
+
+    username = request.session.get("username")
+    user = User.objects.get(username=username)
+    media = models.media.objects.get(api_id=api)
+    if len(models.usermedia.objects.filter(user=user,media=media,status=2)) == 0:
+        insert_user = models.usermedia(user=user,media=media,status=2)
+        insert_user.save()
+        return HttpResponse('<p>Insertada a pendientes</p>')
+    else:
+        return HttpResponse('<p>Ya esta insertada en pendientes</p>')
