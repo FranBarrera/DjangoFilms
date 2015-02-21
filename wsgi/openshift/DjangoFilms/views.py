@@ -113,7 +113,7 @@ def user_vistas(request):
 
 def user_pendientes(request):
     username = request.session.get("username")
-    user = User.objects.get(username='Usuario')
+    user = User.objects.get(username=username)
     usermedia = models.usermedia.objects.filter(user_id=user,status=2).values('media_id')
     resp = models.media.objects.filter(id__in=usermedia)
     return render_to_response('peliculas_pendientes.html', {'data_raw': resp },)
