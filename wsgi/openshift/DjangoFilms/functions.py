@@ -13,3 +13,10 @@ def movies_popular():
         request = requests.get(url,params=values)
         resp = json.loads(request.text)
         return resp
+
+def series_popular():
+        url = 'http://api.themoviedb.org/3/tv/popular'
+        values = {'api_key':'ce9f97d604b836963b8de8c49437e283','language':'es'}
+        request = requests.get(url,params=values)
+        resp = json.loads(request.text)
+        return resp
