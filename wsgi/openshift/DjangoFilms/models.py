@@ -7,6 +7,7 @@ class media(models.Model):
 	api_id = models.IntegerField()
 	type = models.IntegerField()
 	name = models.CharField(max_length=100)
+	img = models.CharField(max_length=100)
 	unique_together = (("api_id", "type"),)
 	def __unicode__(self):
 		return self.name
