@@ -1,0 +1,5 @@
+<h1> Peliculas Vistas </h1>
+
+{% for data in data_raw %}
+	<a href="/peliculas/{{data.api_id}}"><img src="https://image.tmdb.org/t/p/w185/{{data.img}}"/></a>
+{% endfor %}

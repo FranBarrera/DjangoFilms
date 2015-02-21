@@ -1,0 +1,22 @@
+>>> from django.contrib import auth
+>>> import requests,json
+>>> from DjangoFilms import models
+>>> media = models.media.objects.get(api_id=131631)
+>>> print media
+Los juegos del hambre: Sinsajo - Parte 1
+>>> print media.id
+9
+>>> print media.type
+2
+>>> print media.img
+/tKggD5Ka6sPNZXoSeKGQt1a52Rf.jpg
+
+
+
+PETICIÓN MYSQL - select * from DjangoFilms_media where id IN (select media_id from DjangoFilms_usermedia where user_id = 5 and status = 1);
+PETICIÓN DJANGO - 
+
+user = User.objects.get(username='Usuario')
+usermedia = models.usermedia.objects.filter(user_id=user,status=1).values('media_id')
+media = models.media.objects.filter(id__in=usermedia)
+media.values('img')
