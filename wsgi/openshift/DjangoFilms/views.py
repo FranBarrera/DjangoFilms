@@ -38,7 +38,7 @@ def check(request):
 def login(request):
     if request.session.get("username"):
         resp = movies_popular()
-        return render(request, '1.html', {'data_raw': resp },)
+        return render(request, 'home.html', {'data_raw': resp },)
     else:
         return render(request, 'login.html', {})
 
