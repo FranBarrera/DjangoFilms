@@ -48,19 +48,25 @@ def envia_info_peli(request,api):
     return render_to_response('peliculas.html', {'data_raw': resp },)
 
 
-def insert_media(request,api):
-    if len(models.media.objects.filter(api_id=api).values('id')) == 0:
-        resp = info_peli(api)
-        name = resp['title']
-        insert = models.media(api_id=api,type=2,name=name)
-        insert.save()
-        return HttpResponse('<p>Insertada a media</p>')
+# def insert_media(request,api):
+#     if len(models.media.objects.filter(api_id=api).values('id')) == 0:
+#         resp = info_peli(api)
+#         name = resp['title']
+#         insert = models.media(api_id=api,type=2,name=name)
+#         insert.save()
+#     return HttpResponse('<p>Insertada a media</p>')
 
 
 def vista(request,api):
+    if len(models.media.objects.filter(api_id=api).values('id')) == 0:
+        resp = info_peli(api)
+        name = resp['title']
+        insert_media = models.media(api_id=api,type=2,name=name)
+        insert_media.save()
+
     username = request.session.get("username")
     user = User.objects.get(username=username)
     media = models.media.objects.get(api_id=api)
-    insert = models.usermedia(user=user,media=media,status=1)
-    insert.save()
+    insert_user = models.usermedia(user=user,media=media,status=1)
+    insert_user.save()
     return HttpResponse('<p>Insertada a vistas</p>')
