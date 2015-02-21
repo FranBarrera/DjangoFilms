@@ -61,7 +61,9 @@ def vista(request,api):
     if len(models.media.objects.filter(api_id=api).values('id')) == 0:
         resp = info_peli(api)
         name = resp['title']
-        insert_media = models.media(api_id=api,type=2,name=name)
+        img = resp['poster_path']
+
+        insert_media = models.media(api_id=api,type=2,name=name,img=img)
         insert_media.save()
 
     username = request.session.get("username")
@@ -78,7 +80,8 @@ def pendiente(request,api):
     if len(models.media.objects.filter(api_id=api).values('id')) == 0:
         resp = info_peli(api)
         name = resp['title']
-        insert_media = models.media(api_id=api,type=2,name=name)
+        img = resp['poster_path']
+        insert_media = models.media(api_id=api,type=2,name=name,img=img)
         insert_media.save()
 
     username = request.session.get("username")
@@ -90,3 +93,11 @@ def pendiente(request,api):
         return HttpResponse('<p>Insertada a pendientes</p>')
     else:
         return HttpResponse('<p>Ya esta insertada en pendientes</p>')
+
+def user_vistas(request):
+    username = request.session.get("username")
+    user = User.objects.get(username='Usuario')
+    usermedia = models.usermedia.objects.filter(user_id=user,status=1).values('media_id')
+    resp = models.media.objects.filter(id__in=usermedia)
+    return render_to_response('peliculas_vistas.html', {'data_raw': resp },)
+
