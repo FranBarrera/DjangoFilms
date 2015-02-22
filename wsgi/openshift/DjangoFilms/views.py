@@ -44,6 +44,11 @@ def login(request):
         return render(request, 'login.html', {})
 
 
+def logout(request):
+    auth.logout(request)
+    return HttpResponseRedirect('/')
+
+
 def envia_info_peli(request,api):
     resp = info_peli(api)
     return render_to_response('peliculas.html', {'data_raw': resp },)
