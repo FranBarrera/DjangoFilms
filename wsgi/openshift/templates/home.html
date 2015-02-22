@@ -1,17 +1,42 @@
-<h1> Bienvenido, {{ user.username }}.</h1>
+{% include "header.html" %}
+<div class="row">
+    <div class="col-md-12">
+        <h1>Películas</h1>
+        <hr>
 
-<p><a href="/peliculas/vistas">Peliculas Vistas</a></p>
-<p><a href="/peliculas/pendientes">Peliculas Pendientes</a></p>
+        <div class="media-cards row">
+            {% for data in data_raw_movies.results %}
+            <div class="card col-md-2 col-sx-6 col-sm-4">
+                <a href="/peliculas/{{data.id}}">
+                    <div class="card-image">
+                        <span class="nota">{{data.vote_average}} / 10</span>
+                        <img src="https://image.tmdb.org/t/p/w185/{{data.poster_path}}">
+                    </div>
+                    <div class="card-title">
+                        <span>{{data.title}}</span>
+                    </div>
+                </a>
+            </div>
+            {% endfor %}
+        </div>
 
-<p>Una lista de las películas más vistas actualmente</p>
+        <h1>Series</h1>
+        <hr>
 
-{% for data in data_raw_movies.results %}
-    <a href="/peliculas/{{data.id}}"><img src="https://image.tmdb.org/t/p/w185/{{data.poster_path}}"></a>
-{% endfor %}
-
-<p>Una lista de las series más vistas actualmente</p>
-
-{% for data in data_raw_series.results %}
-    <a href="/series/{{data.id}}"><img src="https://image.tmdb.org/t/p/w185/{{data.poster_path}}"></a>
-{% endfor %}
-
+        <div class="media-cards row">
+            {% for data in data_raw_series.results %}
+            <div class="card col-md-2 col-sx-6 col-sm-4">
+                <a href="/series/{{data.id}}">
+                    <div class="card-image">
+                        <span class="nota">{{data.vote_average}} / 10</span>
+                        <img src="https://image.tmdb.org/t/p/w185/{{data.poster_path}}">
+                    </div>
+                    <div class="card-title">
+                        <span>{{data.name}}</span>
+                    </div>
+                </a>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</div>
