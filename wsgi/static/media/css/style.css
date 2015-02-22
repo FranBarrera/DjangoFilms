@@ -1,0 +1,53 @@
+#login {
+  background-size: cover;
+  background: url(http://i.imgur.com/F2d863X.jpg);
+}
+/* line 115, ../sass/style.scss */
+#login .cover {
+  background: rgba(52, 56, 79, 0.9);
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+/* line 124, ../sass/style.scss */
+#login .login a {
+  font-weight: 300;
+  font-size: 13px;
+  color: #898989;
+}
+/* line 129, ../sass/style.scss */
+#login .login h1 {
+  margin-top: 0;
+  font-weight: 200;
+  font-size: 55px;
+  text-align: center;
+  padding: 20px 0;
+  color: white;
+}
+/* line 137, ../sass/style.scss */
+#login .login form {
+  padding: 20px 30px;
+  background: white;
+  border-radius: 3px;
+  overflow: auto;
+}
+/* line 142, ../sass/style.scss */
+#login .login form input {
+  outline: none;
+  margin: 5px 0;
+  border: 1px solid rgba(57, 62, 83, 0.31);
+  padding: 7px;
+  font-size: 12px;
+  border-radius: 3px;
+}
+/* line 150, ../sass/style.scss */
+#login .login form input[type=submit] {
+  background: #34384F;
+  color: white;
+  width: 100%;
+  font-weight: 200;
+  font-size: 16px;
+  margin-top: 10px;
+}
