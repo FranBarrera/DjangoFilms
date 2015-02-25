@@ -20,7 +20,7 @@ urlpatterns = patterns('',
     url(r'^check/$', 'openshift.DjangoFilms.views.check'),
     url(r'^logout/$', 'openshift.DjangoFilms.views.logout'),
 
-    url(r'^pelicula/$', 'openshift.DjangoFilms.views.info'),
+#    url(r'^pelicula/$', 'openshift.DjangoFilms.views.info'),
     url(r'^peliculas/(?P<api>[0-9]{0,9})/$', 'openshift.DjangoFilms.views.envia_info_peli'),
     url(r'^series/(?P<api>[0-9]{0,9})/$', 'openshift.DjangoFilms.views.envia_info_serie'),
     url(r'^series/(?P<api>[0-9]{0,9})/(?P<season>[0-9]{0,9})/$', 'openshift.DjangoFilms.views.envia_seasons'),
