@@ -1,132 +1,150 @@
-/* line 3, ../sass/style.scss */
+* line 3, ../sass/style.scss */
 * {
   font-family: lato, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  text-decoration: none !important;
 }
 
-/* line 15, ../sass/style.scss */
-.truncate, .media-cards .card a .card-title span {
+/* line 16, ../sass/style.scss */
+.truncate, .media-cards .card a .card-title span, .ficha .ficha_content .actor-card span {
   width: 250px;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
 }
 
-/* line 22, ../sass/style.scss */
+@-webkit-keyframes bigHeader {
+  from {
+    padding: 0 0;
+  }
+  to {
+    padding: 100px 0;
+  }
+}
+/* Standard syntax */
+@keyframes bigHeader {
+  from {
+    padding: 0 0;
+  }
+  to {
+    padding: 100px 0;
+  }
+}
+@-webkit-keyframes headerTransition {
+  0% {
+    opacity: 0;
+  }
+  20% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 0.2;
+  }
+}
+/* Standard syntax */
+@keyframes headerTransition {
+  0% {
+    opacity: 0;
+  }
+  20% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 0.2;
+  }
+}
+/* line 67, ../sass/style.scss */
+body {
+  background-color: #EAEAEA;
+}
+/* line 69, ../sass/style.scss */
+body hr {
+  border-color: rgba(181, 181, 181, 0.2);
+}
+/* line 72, ../sass/style.scss */
+body h1 {
+  font-weight: 300;
+}
+
+/* line 77, ../sass/style.scss */
 .header {
   overflow: auto;
   background: #34384F;
+  position: relative;
 }
-/* line 25, ../sass/style.scss */
+/* line 81, ../sass/style.scss */
+.header .background_header {
+  background-size: cover;
+  background-position: center;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 0;
+  opacity: 0.2;
+  -webkit-animation: headerTransition 1s ease-in-out;
+  -moz-animation: headerTransition 1s ease-in-out;
+  -ms-animation: headerTransition 1s ease-in-out;
+  -o-animation: headerTransition 1s ease-in-out;
+  animation: headerTransition 1s ease-in-out;
+}
+/* line 97, ../sass/style.scss */
+.header .container {
+  position: relative;
+  z-index: 1;
+}
+/* line 101, ../sass/style.scss */
+.header .logo {
+  width: 88px;
+}
+/* line 104, ../sass/style.scss */
 .header .main-menu {
-  margin-top: 50px;
+  margin-top: 40px;
 }
-/* line 27, ../sass/style.scss */
+/* line 106, ../sass/style.scss */
 .header .main-menu ul {
   list-style: none;
   margin: 0;
   padding: 0;
 }
-/* line 31, ../sass/style.scss */
+/* line 110, ../sass/style.scss */
 .header .main-menu ul li {
   display: inline-block;
 }
-/* line 33, ../sass/style.scss */
+/* line 112, ../sass/style.scss */
 .header .main-menu ul li a {
   color: white;
   display: block;
   padding: 10px 15px;
-  font-weight: 200;
+  font-weight: 400;
   font-size: 16px;
   -webkit-transition: all 0.1s;
   -moz-transition: all 0.1s;
-  -ms-transition: all 0.1s;
   -o-transition: all 0.1s;
   transition: all 0.1s;
   box-shadow: inset 0 0 white;
 }
-/* line 41, ../sass/style.scss */
+/* line 120, ../sass/style.scss */
 .header .main-menu ul li a:hover, .header .main-menu ul li a.active {
   text-decoration: none;
   box-shadow: inset 0 -3px white;
 }
-/* line 47, ../sass/style.scss */
+/* line 126, ../sass/style.scss */
 .header .main-menu ul.pull-right input {
   border: none;
   padding: 7px 15px;
   font-size: 12px;
   outline: none;
+  border-radius: 2px;
 }
-/* line 55, ../sass/style.scss */
+/* line 135, ../sass/style.scss */
 .header .main-title {
-  font-size: 60px;
+  font-size: 100px;
   color: white;
   font-weight: 200;
-  padding-top: 65px;
+  margin-top: 50px;
   text-align: center;
-}
-/* line 62, ../sass/style.scss */
-.header .main-user {
-  padding: 15px;
-  color: white;
-  font-weight: 300;
-  font-size: 14px;
-  text-transform: capitalize;
-}
-/* line 68, ../sass/style.scss */
-.header .main-user i {
-  margin-left: 10px;
-}
-
-#login {
-  background-size: cover;
-  background: url(http://i.imgur.com/F2d863X.jpg);
-}
-/* line 115, ../sass/style.scss */
-#login .cover {
-  background: rgba(52, 56, 79, 0.9);
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-}
-/* line 124, ../sass/style.scss */
-#login .login a {
-  font-weight: 300;
-  font-size: 13px;
-  color: #898989;
-}
-/* line 129, ../sass/style.scss */
-#login .login h1 {
-  margin-top: 0;
-  font-weight: 200;
-  font-size: 55px;
-  text-align: center;
-  padding: 20px 0;
-  color: white;
-}
-/* line 137, ../sass/style.scss */
-#login .login form {
-  padding: 20px 30px;
-  background: white;
-  border-radius: 3px;
-  overflow: auto;
-}
-/* line 142, ../sass/style.scss */
-#login .login form input {
-  outline: none;
-  margin: 5px 0;
-  border: 1px solid rgba(57, 62, 83, 0.31);
-  padding: 7px;
-  font-size: 12px;
-  border-radius: 3px;
-}
-/* line 150, ../sass/style.scss */
-#login .login form input[type=submit] {
-  background: #34384F;
-  color: white;
-  width: 100%;
-  font-weight: 200;
-  font-size: 16px;
-  margin-top: 10px;
+  font-family: bangers, sans-serif;
+  line-height: 120px;
 }
