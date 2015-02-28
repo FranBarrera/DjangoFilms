@@ -148,3 +148,108 @@ body h1 {
   font-family: bangers, sans-serif;
   line-height: 120px;
 }
+/* line 143, ../sass/style.scss */
+.header .main-title.big {
+  padding: 100px 0;
+  -webkit-animation: bigHeader .5s ease-in-out;
+  -moz-animation: bigHeader .5s ease-in-out;
+  -ms-animation: bigHeader .5s ease-in-out;
+  -o-animation: bigHeader .5s ease-in-out;
+  animation: bigHeader .5s ease-in-out;
+}
+/* line 152, ../sass/style.scss */
+.header .main-user {
+  padding: 15px;
+  color: white;
+  font-weight: 400;
+  font-size: 14px;
+  text-transform: capitalize;
+}
+/* line 158, ../sass/style.scss */
+.header .main-user i {
+  margin-left: 10px;
+}
+
+/* line 164, ../sass/style.scss */
+.media-cards {
+  overflow: auto;
+}
+/* line 167, ../sass/style.scss */
+.media-cards .card a {
+  display: block;
+  box-shadow: 0 1px 10px rgba(52, 56, 79, 0.1);
+  margin-bottom: 25px;
+  color: #34384F;
+  border-radius: 3px;
+  background: white;
+  cursor: pointer;
+  overflow: hidden;
+  -webkit-transition: all 0.3s;
+  -moz-transition: all 0.3s;
+  -o-transition: all 0.3s;
+  transition: all 0.3s;
+}
+/* line 178, ../sass/style.scss */
+.media-cards .card a:hover {
+  text-decoration: none;
+  box-shadow: 0 8px 20px rgba(52, 56, 79, 0.3);
+}
+/* line 183, ../sass/style.scss */
+.media-cards .card a .card-image img {
+  width: 100%;
+}
+/* line 186, ../sass/style.scss */
+.media-cards .card a .card-image .nota {
+  position: absolute;
+  right: 0;
+  text-align: right;
+  margin: 10px 25px;
+  padding: 5px;
+  background: rgba(0, 0, 0, 0.5);
+  color: white;
+  font-size: 12px;
+}
+/* line 197, ../sass/style.scss */
+.media-cards .card a .card-info {
+  padding: 7px 12px 5px;
+}
+/* line 200, ../sass/style.scss */
+.media-cards .card a .card-title {
+  padding: 5px 12px 7px;
+}
+/* line 203, ../sass/style.scss */
+.media-cards .card a .card-title span {
+  display: block;
+  width: 100%;
+}
+
+/* line 213, ../sass/style.scss */
+#login {
+  background-size: cover;
+  background: url(http://i.imgur.com/F2d863X.jpg);
+}
+/* line 216, ../sass/style.scss */
+#login h1 {
+  font-family: bangers, sans-serif;
+}
+/* line 219, ../sass/style.scss */
+#login small.helptext {
+  font-size: 11px;
+  color: #bababa;
+  text-align: justify;
+}
+/* line 224, ../sass/style.scss */
+#login .cover {
+  background: rgba(52, 56, 79, 0.9);
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+/* line 233, ../sass/style.scss */
+#login .login a {
+  font-weight: 300;
+  font-size: 13px;
+  color: #898989;
+}
