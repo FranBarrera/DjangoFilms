@@ -1,12 +1,85 @@
-<h1>{{data_raw.title}}</h1>
-<h1>{{data_raw.release_date}}</h1>
-<h2>{{data_raw.runtime}} minutazos</h2>
-<h2>{{data_raw.genres}}</h2>
-<h2>{{data_raw.vote_average}}</h2>
-<p>{{data_raw.overview}}</p>
-<img src="https://image.tmdb.org/t/p/w185/{{data_raw.poster_path}}">
+{% with mpeliculas_active="active" big_header="big" %}
+{% include "header.html" %}
+{% endwith %}
 
-<p><a href=/peliculas/{{data_raw.id}}/vista title=“vista”>Añadir a Vistas</a></p>
-<p><a href=/peliculas/{{data_raw.id}}/pendiente title=“pendiente”>Añadir a Pendientes</a></p>
+<div class="row ficha">
+    <div class="col-md-3 imagePoster col-sm-3">
+        <img src="https://image.tmdb.org/t/p/w500/{{data_raw.poster_path}}">
 
-{{data_raw}}
+        <div class="row">
+            <div class="col-md-6"><h1 class="text-center">{{data_raw.release_date|slice:":4"}}</h1></div>
+            <div class="col-md-6">
+                <h1 class="text-center">{{data_raw.vote_average}}
+                    <small>/10</small>
+                </h1>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-12 media-status">
+                <a class="btn btn-success col-md-12" href="/peliculas/{{data_raw.id}}/vista">Añadir a Vistas</a>
+                <a class="btn btn-warning col-md-12" href="/peliculas/{{data_raw.id}}/pendiente">Añadir a Pendientes</a>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-9 ficha_content col-sm-9">
+        <h1 class="title">{{data_raw.title}} <span class="btn btn-success">PENDIENTE</span></h1>
+
+        <h1>{{data_raw.release_date|slice:":4"}} - {{data_raw.runtime}}min</h1>
+
+        <div class="row">
+            <div class="col-md-12 genres">
+                {% for genre in data_raw.genres %}
+                <div class="tag">{{genre.name}}</div>
+                {% endfor %}
+            </div>
+        </div>
+        <p class="summary">{{data_raw.overview}}</p>
+
+        <div class="space"></div>
+        <h1>Reparto</h1>
+        <hr>
+        <div class="actor-card row">
+            {% for actor in cast.cast|slice:"10" %}
+            <div class="col-md-4">
+                <div class="card">
+                    <div class="photo"
+                         style="background-image: url(https://image.tmdb.org/t/p/w300/{{actor.profile_path}})"></div>
+                    <span class="character">{{actor.character}}</span>
+                    <span class="name">{{actor.name}}</span>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+
+        <div class="space"></div>
+        <h1>Trailer</h1>
+        <hr>
+        <iframe width="100%" height="420px" src="https://www.youtube.com/embed/{{trailer.results.0.key}}"
+                frameborder="0" allowfullscreen></iframe>
+
+        <div class="space"></div>
+        <h1>Películas similares</h1>
+        <hr>
+        <div class="media-cards row">
+            {% for movie in similar.results|slice:":4" %}
+            <div class="card col-md-3 col-sx-6 col-sm-6">
+                <a href="/peliculas/{{movie.id}}">
+                    <div class="card-image">
+                        <img src="https://image.tmdb.org/t/p/w500/{{movie.poster_path}}">
+                    </div>
+                    <div class="row card-info">
+                        <div class="col-md-6 col-sm-6 col-sx-6">{{movie.release_date|slice:":4"}}</div>
+                        <div class="col-md-6 col-sm-6 col-sx-6 text-right">{{movie.vote_average}}/10</div>
+                    </div>
+                    <div class="card-title">
+                        <span>{{movie.title}}</span>
+                    </div>
+                </a>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+
+</div>
+{% include "footer.html" %}
