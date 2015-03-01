@@ -253,3 +253,165 @@ body h1 {
   font-size: 13px;
   color: #898989;
 }
+/* line 238, ../sass/style.scss */
+#login .login h1 {
+  margin-top: 0;
+  font-weight: 200;
+  font-size: 55px;
+  text-align: center;
+  padding: 20px 0;
+  color: white;
+}
+/* line 246, ../sass/style.scss */
+#login .login form {
+  padding: 20px 30px;
+  background: white;
+  border-radius: 3px;
+  overflow: auto;
+}
+/* line 251, ../sass/style.scss */
+#login .login form input {
+  outline: none;
+  margin: 5px 0;
+  border: 1px solid rgba(57, 62, 83, 0.31);
+  padding: 7px;
+  font-size: 12px;
+  border-radius: 3px;
+}
+/* line 259, ../sass/style.scss */
+#login .login form input[type=submit] {
+  background: #34384F;
+  color: white;
+  width: 100%;
+  font-weight: 200;
+  font-size: 16px;
+  margin-top: 10px;
+}
+
+/* line 271, ../sass/style.scss */
+.card_style, .ficha .ficha_content .summary, .ficha .ficha_content .genres .tag, .ficha .ficha_content .actor-card .card {
+  border-radius: 3px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  background: white;
+}
+
+/* line 278, ../sass/style.scss */
+.ficha {
+  padding-top: 30px;
+}
+/* line 281, ../sass/style.scss */
+.ficha .imagePoster img {
+  width: 100%;
+  height: auto;
+  border-radius: 2px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+  margin-bottom: 20px;
+}
+/* line 288, ../sass/style.scss */
+.ficha .imagePoster .media-status {
+  margin-top: 20px;
+}
+/* line 290, ../sass/style.scss */
+.ficha .imagePoster .media-status .btn {
+  margin-bottom: 10px;
+  border: none;
+  padding: 10px 0 12px;
+  background: white;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  color: #34384F;
+  -webkit-transition: all 0.3s;
+  -moz-transition: all 0.3s;
+  -o-transition: all 0.3s;
+  transition: all 0.3s;
+}
+/* line 298, ../sass/style.scss */
+.ficha .imagePoster .media-status .btn:hover {
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+}
+/* line 306, ../sass/style.scss */
+.ficha .ficha_content .title {
+  margin: -5px 0 -10px;
+  font-size: 60px;
+  line-height: 60px;
+}
+/* line 310, ../sass/style.scss */
+.ficha .ficha_content .title span {
+  background: white;
+  border: none;
+  color: black;
+  font-size: 12px;
+  margin-left: 10px;
+  cursor: default;
+}
+/* line 319, ../sass/style.scss */
+.ficha .ficha_content .summary {
+  font-size: 15px;
+  text-align: justify;
+  margin: 10px 0;
+}
+/* line 325, ../sass/style.scss */
+.ficha .ficha_content .space {
+  height: 20px;
+  clear: both;
+}
+/* line 329, ../sass/style.scss */
+.ficha .ficha_content .genres {
+  margin-top: 10px;
+}
+/* line 331, ../sass/style.scss */
+.ficha .ficha_content .genres .tag {
+  margin: 0 10px 5px 0;
+  display: inline-block;
+  background: #607D8B;
+  color: white;
+  font-weight: 600;
+  padding: 7px 12px;
+  cursor: default;
+}
+/* line 343, ../sass/style.scss */
+.ficha .ficha_content .actor-card .card {
+  padding: 10px;
+  background: white;
+  border-radius: 4px;
+  margin-bottom: 20px;
+}
+/* line 350, ../sass/style.scss */
+.ficha .ficha_content .actor-card .photo {
+  background-image: url(https://image.tmdb.org/t/p/w300//hHiLJl7yvDwbtbgdvTQKa7HuQCx.jpg);
+  width: 43px;
+  height: 43px;
+  background-size: cover;
+  background-position: center;
+  border-radius: 100%;
+  float: left;
+  margin-right: 10px;
+}
+/* line 360, ../sass/style.scss */
+.ficha .ficha_content .actor-card span {
+  width: -webkit-calc(100% - 60px);
+  width: -moz-calc(100% - 60px);
+}
+/* line 365, ../sass/style.scss */
+.ficha .ficha_content .actor-card .character {
+  display: block;
+  font-size: 16px;
+}
+/* line 369, ../sass/style.scss */
+.ficha .ficha_content .actor-card .name {
+  color: rgba(0, 0, 0, 0.5);
+}
+
+/* line 376, ../sass/style.scss */
+.footer {
+  margin-top: 50px;
+  padding: 20px 0 15px;
+  background: #34384F;
+  color: white;
+  box-sizing: border-box;
+}
+/* line 382, ../sass/style.scss */
+.footer .logo_font {
+  font-size: 20px;
+  font-family: bangers, sans-serif;
+}
