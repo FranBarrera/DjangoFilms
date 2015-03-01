@@ -1,28 +1,36 @@
 <html>
 <head>
     <title>DjangoFilms</title>
-    <link rel="stylesheet" href="/static/media/css/style.css"/>
     <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css" rel="stylesheet">
     <script src="//code.jquery.com/jquery-1.11.2.min.js"></script>
     <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
-    <script src="//use.edgefonts.net/lato:n1,i1,n3,i3,n4,i4,n7,i7,n9,i9.js"></script>
+    <script src="//use.edgefonts.net/lato:n3,n4,i4,n7;bangers:n4.js"></script>
     <script src="/static/media/js/core.js"></script>
     <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="/static/media/css/style.css"/>
 </head>
 <body>
 <div class="header">
+    <div class="background_header {{big_header}}"
+         style="background-image: url(https://image.tmdb.org/t/p/w1000/{{data_raw.backdrop_path}});"></div>
     <div class="container">
         <div class="row">
             <div class="pull-right main-user">
                 <span>{{ user.username }}</span>
-                <a href="/logout/"><i class="fa fa-power-off"></i>
+                <i class="fa fa-power-off"></i>
             </div>
-            <div class="main-title">DjangoFilms</div>
+            <a href="/">
+                <div class="main-title {{big_header}}">
+                    <img src="/static/media/img/logo.png" class="logo">
+                    DjangoFilms
+                </div>
+            </a>
+
             <div class="main-menu">
                 <ul class="pull-left">
                     <li><a class="{{inicio_active}}" href="/">Inicio</a></li>
                     <li><a class="{{mseries_active}}" href="/">Mis series</a></li>
-                    <li><a class="{{mpeliculas_active}}" href="/peliculas/user">Mis películas</a></li>
+                    <li><a class="{{mpeliculas_active}}" href="/">Mis películas</a></li>
                     <li><a class="{{series_active}}" href="/">Series</a></li>
                     <li><a class="{{peliculas_active}}" href="/">Películas</a></li>
                 </ul>

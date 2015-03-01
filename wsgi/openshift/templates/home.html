@@ -9,8 +9,11 @@
             <div class="card col-md-2 col-sx-6 col-sm-4">
                 <a href="/peliculas/{{data.id}}">
                     <div class="card-image">
-                        <span class="nota">{{data.vote_average}} / 10</span>
                         <img src="https://image.tmdb.org/t/p/w185/{{data.poster_path}}">
+                    </div>
+                    <div class="row card-info">
+                        <div class="col-md-6 col-sm-6 col-sx-6">{{data.release_date|slice:":4"}}</div>
+                        <div class="col-md-6 col-sm-6 col-sx-6 text-right">{{data.vote_average}}/10</div>
                     </div>
                     <div class="card-title">
                         <span>{{data.title}}</span>
@@ -28,8 +31,11 @@
             <div class="card col-md-2 col-sx-6 col-sm-4">
                 <a href="/series/{{data.id}}">
                     <div class="card-image">
-                        <span class="nota">{{data.vote_average}} / 10</span>
                         <img src="https://image.tmdb.org/t/p/w185/{{data.poster_path}}">
+                    </div>
+                    <div class="row card-info">
+                        <div class="col-md-6 col-sm-6 col-sx-6">{{data.first_air_date|slice:":4"}}</div>
+                        <div class="col-md-6 col-sm-6 col-sx-6 text-right">{{data.vote_average}}/10</div>
                     </div>
                     <div class="card-title">
                         <span>{{data.name}}</span>
