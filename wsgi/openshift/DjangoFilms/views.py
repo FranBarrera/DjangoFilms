@@ -44,11 +44,6 @@ def login(request):
         return render(request, 'login.html', {})
 
 
-def logout(request):
-    auth.logout(request)
-    return HttpResponseRedirect('/')
-
-
 def envia_info_peli(request,api):
     username = request.session.get("username")
     user = User.objects.get(username=username)
@@ -69,7 +64,6 @@ def envia_seasons(request,api,season):
     user = User.objects.get(username=username)
     resp = seasons_series(api,season)
     return render_to_response('capitulos.html', {'data_raw': resp , 'user': user  },)
-
 
 
 # def insert_media(request,api):
