@@ -62,13 +62,13 @@ def envia_info_serie(request,api):
     username = request.session.get("username")
     user = User.objects.get(username=username)
     resp = info_serie(api)
-    return render_to_response('series.html', {'data_raw': resp },)
+    return render_to_response('series.html', {'data_raw': resp , 'user': user  },)
 
 def envia_seasons(request,api,season):
     username = request.session.get("username")
     user = User.objects.get(username=username)
     resp = seasons_series(api,season)
-    return render_to_response('capitulos.html', {'data_raw': resp },)
+    return render_to_response('capitulos.html', {'data_raw': resp , 'user': user  },)
 
 
 
