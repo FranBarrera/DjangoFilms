@@ -29,9 +29,7 @@ urlpatterns = patterns('',
 #    url(r'^peliculas/(?P<api>[0-9]{0,9})/vista$', 'openshift.DjangoFilms.views.insert_media'),
     url(r'^peliculas/(?P<api>[0-9]{0,9})/vista$', 'openshift.DjangoFilms.views.vista'),
     url(r'^peliculas/(?P<api>[0-9]{0,9})/pendiente$', 'openshift.DjangoFilms.views.pendiente'),
-    url(r'^peliculas/vistas$', 'openshift.DjangoFilms.views.user_vistas'),
-    url(r'^peliculas/pendientes$', 'openshift.DjangoFilms.views.user_pendientes'),
-
+    url(r'^peliculas/user$', 'openshift.DjangoFilms.views.user_peliculas'),
 
  #   url(r'^peliculas/245891/$', 'openshift.DjangoFilms.views.info_peli'),
 
