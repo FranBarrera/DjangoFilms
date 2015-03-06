@@ -70,17 +70,6 @@ def envia_seasons(request,api,season):
     resp = seasons_series(api,season)
     return render_to_response('capitulos.html', {'data_raw': resp , 'user': user  },)
 
-
-
-# def insert_media(request,api):
-#     if len(models.media.objects.filter(api_id=api).values('id')) == 0:
-#         resp = info_peli(api)
-#         name = resp['title']
-#         insert = models.media(api_id=api,type=2,name=name)
-#         insert.save()
-#     return HttpResponse('<p>Insertada a media</p>')
-
-
 def vista(request,api):
     if len(models.media.objects.filter(api_id=api).values('id')) == 0:
         resp = info_peli(api)
