@@ -85,9 +85,9 @@ def vista(request,api):
     if len(models.usermedia.objects.filter(user=user,media=media,status=1)) == 0:
         insert_user = models.usermedia(user=user,media=media,status=1)
         insert_user.save()
-        return HttpResponse('<p>Insertada a vistas</p>')
+        return HttpResponse('<p>Insertada a vistas</p> <a href="/">Volver a Inicio </a>')
     else:
-        return HttpResponse('<p>Ya esta insertada en vistas</p>')
+        return HttpResponse('<p>Ya esta insertada en vistas</p> <a href="/">Volver a Inicio </a>')
 
 def pendiente(request,api):
     if len(models.media.objects.filter(api_id=api).values('id')) == 0:
@@ -103,9 +103,9 @@ def pendiente(request,api):
     if len(models.usermedia.objects.filter(user=user,media=media,status=2)) == 0:
         insert_user = models.usermedia(user=user,media=media,status=2)
         insert_user.save()
-        return HttpResponse('<p>Insertada a pendientes</p>')
+        return HttpResponse('<p>Insertada a pendientes</p> <a href="/">Volver a Inicio </a>')
     else:
-        return HttpResponse('<p>Ya esta insertada en pendientes</p>')
+        return HttpResponse('<p>Ya esta insertada en pendientes</p> <a href="/">Volver a Inicio </a>')
 
 def user_peliculas(request):
     username = request.session.get("username")
@@ -116,3 +116,10 @@ def user_peliculas(request):
     resp_vistas = models.media.objects.filter(id__in=usermedia_vistas)
     return render_to_response('peliculas_user.html', {'data_raw_pendientes': resp_pendientes, 'data_raw_vistas': resp_vistas},)
 
+
+
+# def searcher(request):
+#     v_busqueda = request.POST('busqueda')
+#     print v_busqueda
+#     resp = search_all(query)
+#     return render(request, 'search.html', {'data_raw': resp},)

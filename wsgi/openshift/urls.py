@@ -30,6 +30,8 @@ urlpatterns = patterns('',
     url(r'^peliculas/(?P<api>[0-9]{0,9})/vista$', 'openshift.DjangoFilms.views.vista'),
     url(r'^peliculas/(?P<api>[0-9]{0,9})/pendiente$', 'openshift.DjangoFilms.views.pendiente'),
     url(r'^peliculas/user$', 'openshift.DjangoFilms.views.user_peliculas'),
+    url(r'^busqueda/$', 'openshift.DjangoFilms.views.searcher'),
+
 
  #   url(r'^peliculas/245891/$', 'openshift.DjangoFilms.views.info_peli'),
 

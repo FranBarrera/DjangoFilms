@@ -36,7 +36,10 @@
                 </ul>
                 <ul class="pull-right">
                     <li>
-                        <input type="text" placeholder="Buscar...">
+                        <form method="post" action="/busqueda/"/>{% csrf_token %}
+                            <input type="text" placeholder="Buscar..." name="busqueda" size="20"/>
+                            <input type="submit" value="Buscar"/>
+                        </form>
                     </li>
                 </ul>
             </div>

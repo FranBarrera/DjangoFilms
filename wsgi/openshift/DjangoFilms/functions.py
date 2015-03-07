@@ -49,3 +49,9 @@ def seasons_series(api,season):
         request = requests.get(url,params=request_values)
         resp = json.loads(request.text)
         return resp
+
+def search_all(query):
+        url = 'http://api.themoviedb.org/3/search/multi?query=%s' %(query)
+        request = requets.get(url,params=request_values)
+        resp = json.loads(request.text)
+        return resp
