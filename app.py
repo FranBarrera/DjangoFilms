@@ -1,2 +1,2 @@
 #!/usr/bin/env python
-python wsgi/openshift/manage.py runserver
+python ./wsgi/openshift/manage.py runserver
