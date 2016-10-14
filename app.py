@@ -1,2 +1,4 @@
 #!/usr/bin/env python
-python ./wsgi/openshift/manage.py runserver
+import os
+
+os.system("wsgi/openshift/manage.py runserver")
